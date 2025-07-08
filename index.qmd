@@ -2,16 +2,18 @@
 title: "Most frequently used babynames"
 ---
 
+```         
+[![DOI](https://zenodo.org/badge/1016043379.svg)](https://doi.org/10.5281/zenodo.15838040)
+```
+
 # Project summary and gol
 
 *In this project we aim to visualize the trends of the most frequently used babynames from 1880 to 2017 in the United States. We do this by:*
 
-* *Understanding the different columns of the data set*
-* *Find the top 10 most frequently used baby names in the data for:*
-  + girls
-  + boys
-  
-* *Plot the yearly trend of the top 10 baby names*
+-   *Understanding the different columns of the data set*
+-   *Find the top 10 most frequently used baby names in the data for:*
+    -   girls
+    -   boys
+-   *Plot the yearly trend of the top 10 baby names*
 
-![A cute baby with glasses](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Newborn_baby_20230401.jpg/2560px-Newborn_baby_20230401.jpg){fig-alt="A cute baby with glasses." width=90% #fig-baby}
-
+![A cute baby with glasses](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Newborn_baby_20230401.jpg/2560px-Newborn_baby_20230401.jpg){#fig-baby fig-alt="A cute baby with glasses." width="90%"}
