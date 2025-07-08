@@ -4,6 +4,16 @@ title: "analysis"
 
 # Load libraries
 
+let's setup renv to lock the project dependencies.
+
+```{r}
+#| output: false
+install.packages("renv")
+renv::init()
+renv::snapshot()
+```
+
+
 in this section we call all libraries that we will require to run our analysis.
 
 ```{r}
