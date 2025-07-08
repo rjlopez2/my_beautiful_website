@@ -4,7 +4,7 @@
     "href": "analysis.html",
     "title": "analysis",
     "section": "",
-    "text": "in this section we call all libraries that we will require to run our analysis.\n\nlibrary(babynames)\nlibrary(knitr)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidyr)\nlibrary(pheatmap)"
+    "text": "let’s setup renv to lock the project dependencies.\n\ninstall.packages(\"renv\")\nrenv::init()\nrenv::snapshot()\n\nin this section we call all libraries that we will require to run our analysis.\n\nlibrary(babynames)\nlibrary(knitr)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidyr)\nlibrary(pheatmap)"
   },
   {
     "objectID": "analysis.html#check-the-first-10-babynames-of-the-dataset",

@@ -127,3 +127,6 @@ rownames(prop_mat) <- prop_df$name
 # create heatmap
 pheatmap(prop_mat, cluster_cols = FALSE, scale = "row")
 ```
+
+
+
