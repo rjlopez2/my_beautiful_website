@@ -1,0 +1,85 @@
+---
+title: "analysis"
+---
+
+# Load libraries
+
+in this section we call all libraries that we will require to run our analysis.
+
+```{r}
+#| output: false
+library(babynames)
+library(knitr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(pheatmap)
+```
+
+# Explore the dataset
+
+## Check the first 10 babynames of the dataset
+
+```{r}
+head(babynames, 10) |> kable()
+```
+
+Here, We’ve created two functions that do the following:
+
+-   `get_most_frequent`: Gets the most frequent babynames over a time-period.
+
+-   `plot_top`: from the output of `get_most_frequent`. Plot the top n most popular names.
+
+Let's now use these functions to visualize the plots.
+
+
+```{r}
+#| code-fold: true
+get_most_frequent <- function(babynames, select_sex, from = 1950) {
+  most_freq <- babynames |>
+    filter(sex == select_sex, year > from) |>
+    group_by(name) |>
+    summarise(average = mean(prop)) |>
+    arrange(desc(average))
+    
+  return(list(
+    babynames = babynames,
+    most_frequent = most_freq,
+    sex = select_sex,
+    from = from))
+}
+
+plot_top <- function(x, top = 10) {
+  topx <- x$most_frequent$name[1:top]
+  
+  p <- x$babynames |>
+    filter(name %in% topx, sex == x$sex, year > x$from) |>
+    ggplot(aes(x = year, y = prop, color = name)) +
+    geom_line() +
+    scale_color_brewer(palette = "Paired") +
+    theme_classic()
+  
+  return(p)
+}
+```
+
+## Plotting the 10 most frequently names for baby boys 👯‍♂️
+
+```{r}
+#| label: fig-freq-boys
+#| fig-cap: "Most frequent names for baby boys"
+get_most_frequent(babynames, select_sex = "M") |>
+  plot_top()
+```
+
+From the @fig-freq-boys we observe a clear popularity of the name Michael and later other names such as Christopher and Mathew gained more popularity.
+
+## Plotting the 10 most frequently names for baby girls 🤸‍♀️
+
+```{r}
+#| label: fig-freq-girl
+#| fig-cap: "Most frequent names for baby girls"
+get_most_frequent(babynames, select_sex = "F") |>
+  plot_top()
+```
+From the @fig-freq-girl we see that 

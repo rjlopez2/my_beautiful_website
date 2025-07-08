@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Most frequently used babynames",
+    "section": "",
+    "text": "Project summary and gol\nIn this project we aim to visualize the trends of the most frequently used babynames from 1880 to 2017 in the United States. We do this by:\n\nUnderstanding the different columns of the data set\nFind the top 10 most frequently used baby names in the data for:\n\ngirls\nboys\n\nPlot the yearly trend of the top 10 baby names\n\n\n\n\n\n\n\nFigure 1: A cute baby with glasses"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "analysis.html",
+    "href": "analysis.html",
+    "title": "analysis",
+    "section": "",
+    "text": "in this section we call all libraries that we will require to run our analysis.\n\nlibrary(babynames)\nlibrary(knitr)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(tidyr)\nlibrary(pheatmap)"
+  },
+  {
+    "objectID": "analysis.html#check-the-first-10-babynames-of-the-dataset",
+    "href": "analysis.html#check-the-first-10-babynames-of-the-dataset",
+    "title": "analysis",
+    "section": "Check the first 10 babynames of the dataset",
+    "text": "Check the first 10 babynames of the dataset\n\nhead(babynames, 10) |&gt; kable()\n\n\n\n\nyear\nsex\nname\nn\nprop\n\n\n\n\n1880\nF\nMary\n7065\n0.0723836\n\n\n1880\nF\nAnna\n2604\n0.0266790\n\n\n1880\nF\nEmma\n2003\n0.0205215\n\n\n1880\nF\nElizabeth\n1939\n0.0198658\n\n\n1880\nF\nMinnie\n1746\n0.0178884\n\n\n1880\nF\nMargaret\n1578\n0.0161672\n\n\n1880\nF\nIda\n1472\n0.0150812\n\n\n1880\nF\nAlice\n1414\n0.0144870\n\n\n1880\nF\nBertha\n1320\n0.0135239\n\n\n1880\nF\nSarah\n1288\n0.0131961\n\n\n\n\n\nHere, We’ve created two functions that do the following:\n\nget_most_frequent: Gets the most frequent babynames over a time-period.\nplot_top: from the output of get_most_frequent. Plot the top n most popular names.\n\nLet’s now use these functions to visualize the plots.\n\n\nCode\nget_most_frequent &lt;- function(babynames, select_sex, from = 1950) {\n  most_freq &lt;- babynames |&gt;\n    filter(sex == select_sex, year &gt; from) |&gt;\n    group_by(name) |&gt;\n    summarise(average = mean(prop)) |&gt;\n    arrange(desc(average))\n    \n  return(list(\n    babynames = babynames,\n    most_frequent = most_freq,\n    sex = select_sex,\n    from = from))\n}\n\nplot_top &lt;- function(x, top = 10) {\n  topx &lt;- x$most_frequent$name[1:top]\n  \n  p &lt;- x$babynames |&gt;\n    filter(name %in% topx, sex == x$sex, year &gt; x$from) |&gt;\n    ggplot(aes(x = year, y = prop, color = name)) +\n    geom_line() +\n    scale_color_brewer(palette = \"Paired\") +\n    theme_classic()\n  \n  return(p)\n}"
+  },
+  {
+    "objectID": "analysis.html#plotting-the-top-10-babynames-for-boys",
+    "href": "analysis.html#plotting-the-top-10-babynames-for-boys",
+    "title": "analysis",
+    "section": "Plotting the top 10 babynames for boys",
+    "text": "Plotting the top 10 babynames for boys\n\nget_most_frequent(babynames, select_sex = \"F\") |&gt;\n  plot_top()"
+  },
+  {
+    "objectID": "analysis.html#plotting-the-top-10-babynames-for-girls",
+    "href": "analysis.html#plotting-the-top-10-babynames-for-girls",
+    "title": "analysis",
+    "section": "Plotting the top 10 babynames for girls",
+    "text": "Plotting the top 10 babynames for girls\n\nget_most_frequent(babynames, select_sex = \"M\") |&gt;\n  plot_top()"
+  },
+  {
+    "objectID": "analysis.html#plotting-the-10-most-frequently-names-for-baby-boys",
+    "href": "analysis.html#plotting-the-10-most-frequently-names-for-baby-boys",
+    "title": "analysis",
+    "section": "Plotting the 10 most frequently names for baby boys 👯‍♂️",
+    "text": "Plotting the 10 most frequently names for baby boys 👯‍♂️\n\nget_most_frequent(babynames, select_sex = \"M\") |&gt;\n  plot_top()\n\n\n\n\n\n\n\nFigure 1: Most frequent names for baby boys\n\n\n\n\n\nFrom the Figure 1 we observe a clear popularity of the name Michael and later other names such as Christopher and Mathew gained more popularity."
+  },
+  {
+    "objectID": "analysis.html#plotting-the-10-most-frequently-names-for-baby-girls",
+    "href": "analysis.html#plotting-the-10-most-frequently-names-for-baby-girls",
+    "title": "analysis",
+    "section": "Plotting the 10 most frequently names for baby girls 🤸‍♀️",
+    "text": "Plotting the 10 most frequently names for baby girls 🤸‍♀️\n\nget_most_frequent(babynames, select_sex = \"F\") |&gt;\n  plot_top()\n\n\n\n\n\n\n\nFigure 2: Most frequent names for baby girls\n\n\n\n\n\nFrom the Figure 2 we see that"
+  }
+]
