@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rjlopez2.github.io/my_beautiful_website/about.html</loc>
+    <lastmod>2025-07-08T12:58:56.648Z</lastmod>
+  </url>
+  <url>
     <loc>https://rjlopez2.github.io/my_beautiful_website/analysis.html</loc>
-    <lastmod>2025-07-08T12:59:55.099Z</lastmod>
+    <lastmod>2025-07-08T12:58:56.648Z</lastmod>
   </url>
   <url>
     <loc>https://rjlopez2.github.io/my_beautiful_website/index.html</loc>
-    <lastmod>2025-07-08T12:08:16.245Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rjlopez2.github.io/my_beautiful_website/about.html</loc>
-    <lastmod>2025-07-08T12:08:16.245Z</lastmod>
+    <lastmod>2025-07-08T12:58:56.648Z</lastmod>
   </url>
 </urlset>
