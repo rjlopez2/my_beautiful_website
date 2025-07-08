@@ -34,7 +34,7 @@ jobs:
         with:
           # ! important: change this version to your local R version 
           # i.e. the version that is specified in renv.lock
-          r-version: '4.3.1'
+          r-version: '4.5.1'
 
         # and the required R dependencies
       - name: Install R Dependencies
