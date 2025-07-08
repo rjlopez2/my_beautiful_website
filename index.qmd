@@ -2,9 +2,7 @@
 title: "Most frequently used babynames"
 ---
 
-```         
-[![DOI](https://zenodo.org/badge/1016043379.svg)](https://doi.org/10.5281/zenodo.15838040)
-```
+<a href="https://doi.org/10.5281/zenodo.15838040"><img src="https://zenodo.org/badge/1016043379.svg" alt="DOI"></a>
 
 # Project summary and gol
 
